@@ -37,7 +37,7 @@ class AuthService {
   Future<void> resetPassword(String email) {
     return _client.auth.resetPasswordForEmail(
       email,
-      redirectTo: kIsWeb ? Uri.base.origin : SupabaseConfig.oauthRedirectUri,
+      redirectTo: kIsWeb ? '${Uri.base.origin}/' : SupabaseConfig.oauthRedirectUri,
     );
   }
 
@@ -68,7 +68,7 @@ class AuthService {
   Future<void> linkGoogle() {
     return _client.auth.linkIdentity(
       OAuthProvider.google,
-      redirectTo: kIsWeb ? Uri.base.origin : SupabaseConfig.oauthRedirectUri,
+      redirectTo: kIsWeb ? '${Uri.base.origin}/' : SupabaseConfig.oauthRedirectUri,
     );
   }
 
@@ -135,14 +135,24 @@ class AuthService {
   }
 
   /// Fluxo OAuth via navegador externo (Windows, Linux, Web).
+  /// Na Web o redirecionamento volta para a própria página do Vercel.
+  /// No desktop nativo, volta via deep link (io.supabase.listacompras://...).
   Future<AuthResponse?> _signInWithGoogleOAuth() async {
+    // Na Web, usa a URL de origem do navegador (ex: https://listacomprasbynytter.vercel.app/)
+    // para que o Supabase redirecione de volta para a versão web e NÃO tente abrir o app nativo.
+    final redirect = kIsWeb
+        ? '${Uri.base.origin}/'
+        : SupabaseConfig.oauthRedirectUri;
+
     await _client.auth.signInWithOAuth(
       OAuthProvider.google,
-      redirectTo: kIsWeb ? Uri.base.origin : SupabaseConfig.oauthRedirectUri,
-      authScreenLaunchMode: kIsWeb ? LaunchMode.platformDefault : LaunchMode.externalApplication,
+      redirectTo: redirect,
+      authScreenLaunchMode: kIsWeb
+          ? LaunchMode.platformDefault
+          : LaunchMode.externalApplication,
       queryParams: {'prompt': 'select_account'},
     );
-    // signInWithOAuth retorna void; a sessão chega via deep link / redirect
+    // signInWithOAuth retorna void; a sessão chega via redirect na URL
     // e é capturada pelo listener onAuthStateChange no AuthProvider.
     return null;
   }
