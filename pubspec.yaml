@@ -1,0 +1,63 @@
+name: lista_compras
+description: App multiplataforma de lista de compras compartilhada com Supabase
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Backend / autenticação
+  supabase_flutter: ^2.5.6
+
+  # Estado
+  provider: ^6.1.2
+
+  # Customização local (cores, fontes, svg) e cache offline
+  shared_preferences: ^2.5.5
+  google_fonts: ^6.2.1
+  flutter_svg: ^2.0.10+1
+  flutter_colorpicker: ^1.1.0
+
+  # Login nativo com Google (Android, iOS, macOS)
+  google_sign_in: ^6.2.2
+
+  # Utilidades de UI
+  flutter_slidable: ^3.1.1
+  share_plus: ^9.0.0
+  url_launcher: ^6.2.6
+  connectivity_plus: ^6.0.3
+  app_links: ^7.2.1
+  win32_registry: ^2.1.0
+  showcaseview: ^5.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/svgs/
+
+# Configuração do ícone do aplicativo (no nível raiz do pubspec)
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon.png"
+  web:
+    generate: true
+    image_path: "assets/icon.png"
+    background_color: "#FFFFFF"
+    theme_color: "#FFFFFF"
+  macos:
+    generate: true
+    image_path: "assets/icon.png"
+  windows:
+    generate: true
+    image_path: "assets/icon.png"
