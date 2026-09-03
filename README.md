@@ -17,7 +17,7 @@ O aplicativo utiliza **Flutter** para ser multiplataforma (podendo rodar tanto e
 
 Faça o download direto do aplicativo para o seu celular, sem precisar de computador:
 
-1. [⬇️ **Baixar o APK do Comprar o Quê?**](https://github.com/Gustavo-Gomide/ListaCompra/releases/latest/download/app-release.apk)
+1. [⬇️ **Baixar o APK do Comprar o Quê?**](https://github.com/Gustavo-Gomide/lista_compras/releases/latest/download/app-release.apk)
 2. Ao terminar de baixar, clique no arquivo baixado no seu celular.
 3. Se o celular pedir permissão para "Instalar de fontes desconhecidas", você pode permitir.
 4. Pronto! O app será instalado e já pode ser usado.
@@ -28,7 +28,7 @@ Faça o download direto do aplicativo para o seu celular, sem precisar de comput
 
 Você pode rodar o aplicativo de forma nativa no seu computador!
 
-1. [⬇️ **Baixar a versão para Windows (.zip)**](https://github.com/Gustavo-Gomide/ListaCompra/releases/latest/download/lista_compras_windows.zip)
+1. [⬇️ **Baixar a versão para Windows (.zip)**](https://github.com/Gustavo-Gomide/lista_compras/releases/latest/download/lista_compras_windows.zip)
 2. Após o download, extraia (descompacte) a pasta `.zip` em qualquer lugar do seu computador (como a Área de Trabalho).
 3. Abra a pasta extraída e dê um duplo-clique no arquivo executável `lista_compras.exe`.
 4. (Opcional) Você pode criar um atalho desse arquivo na sua Área de Trabalho para facilitar o acesso diário.
